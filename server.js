@@ -57,7 +57,7 @@ app.post("/send-notification", async (req, res) => {
     // Iterate through subscriptions and send notifications
     const promises = subscriptions.map(async (subscription) => {
       try {
-        return webPush.sendNotification(
+        await webPush.sendNotification(
           subscription,
           JSON.stringify(notificationPayload)
         );
